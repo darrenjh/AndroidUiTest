@@ -1,4 +1,4 @@
-[en](readme-en.md)
+[EN](readme-en.md)
 # 这个工程是UI方面的示例代码
 
 
