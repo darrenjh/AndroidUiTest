@@ -1,2 +1,2 @@
-[README-CN.md](中文文档)
+[中文文档](README-CN.md) 
 The project is test for sample
