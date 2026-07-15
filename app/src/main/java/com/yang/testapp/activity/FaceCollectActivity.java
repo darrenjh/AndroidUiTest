@@ -833,6 +833,7 @@ public class FaceCollectActivity extends AppCompatActivity {
     private void updateFaceState(boolean detected, boolean inside, boolean tooClose) {
         faceInsideFrame = inside;
         binding.faceFrameOverlay.setFaceInside(inside);
+        updateIdlePromptByFaceState(inside);
         if (!detected) {
             faceReadySinceMs = 0L;
             cancelScheduledCapture();
@@ -858,6 +859,18 @@ public class FaceCollectActivity extends AppCompatActivity {
                 ? R.string.face_collect_status_inside
                 : R.string.face_collect_status_ready);
         scheduleCaptureIfReady();
+    }
+
+    /**
+     * 未开始采集时同步顶部提示，采集中保留当前随机动作提示。
+     */
+    private void updateIdlePromptByFaceState(boolean inside) {
+        if (collecting) {
+            return;
+        }
+        binding.tvPrompt.setText(inside
+                ? R.string.face_collect_prompt_ready
+                : R.string.face_collect_prompt_idle);
     }
 
     /**

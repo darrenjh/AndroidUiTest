@@ -31,14 +31,14 @@ public class MainActivity extends AppCompatActivity {
     private MainInfo currentInfo;
 
     /**
-     * 初始化首页列表，并挂载人脸采集入口按钮。
+     * 初始化首页列表，并挂载生物特征采集入口按钮。
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(LayoutInflater.from(this));
         setContentView(binding.getRoot());
-        bindFaceCollectEntry();
+        bindCollectEntries();
         initView(30, binding, new Runnable() {
             @Override
             public void run() {
@@ -48,9 +48,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * 绑定首页的人脸采集入口，点击后进入独立相机采集页。
+     * 绑定首页的人脸和声纹采集入口，点击后进入各自独立采集页。
      */
-    private void bindFaceCollectEntry() {
+    private void bindCollectEntries() {
         binding.btnFaceCollect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -61,6 +61,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MainActivity.this, FaceCollectMvvmActivity.class));
+            }
+        });
+        binding.btnVoiceCollect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, VoiceCollectActivity.class));
             }
         });
     }

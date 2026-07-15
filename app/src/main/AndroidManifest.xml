@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
     <application
         android:allowBackup="true"
@@ -23,6 +24,12 @@
             android:name=".activity.FaceCollectMvvmActivity"
             android:exported="false"
             android:label="@string/face_collect_title"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.TestApp" />
+        <activity
+            android:name=".activity.VoiceCollectActivity"
+            android:exported="false"
+            android:label="@string/voice_collect_title"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.TestApp" />
         <activity

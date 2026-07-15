@@ -128,35 +128,55 @@ class FaceCollectViewModel : ViewModel() {
      */
     fun onFaceState(detected: Boolean, inside: Boolean, tooClose: Boolean) {
         faceInsideFrame = inside
+        val idlePromptResId = if (!collecting && inside) {
+            R.string.face_collect_prompt_ready
+        } else {
+            R.string.face_collect_prompt_idle
+        }
         if (!detected) {
             faceReadySinceMs = 0L
             cancelScheduledCapture()
-            updateUi(statusResId = R.string.face_collect_status_no_face)
+            updateFaceStateUi(idlePromptResId, R.string.face_collect_status_no_face)
             return
         }
         if (tooClose) {
             faceReadySinceMs = 0L
             cancelScheduledCapture()
-            updateUi(statusResId = R.string.face_collect_status_too_close)
+            updateFaceStateUi(idlePromptResId, R.string.face_collect_status_too_close)
             return
         }
         if (!inside) {
             faceReadySinceMs = 0L
             cancelScheduledCapture()
-            updateUi(statusResId = R.string.face_collect_status_outside)
+            updateFaceStateUi(idlePromptResId, R.string.face_collect_status_outside)
             return
         }
         if (faceReadySinceMs == 0L) {
             faceReadySinceMs = SystemClock.elapsedRealtime()
         }
-        updateUi(
-            statusResId = if (collecting) {
+        updateFaceStateUi(
+            idlePromptResId,
+            if (collecting) {
                 R.string.face_collect_status_inside
             } else {
                 R.string.face_collect_status_ready
             }
         )
         scheduleCaptureIfReady()
+    }
+
+    /**
+     * 未采集时同步顶部提示，采集中保留当前随机动作提示。
+     */
+    private fun updateFaceStateUi(promptResIdWhenIdle: Int, statusResId: Int) {
+        if (collecting) {
+            updateUi(statusResId = statusResId)
+        } else {
+            updateUi(
+                promptResId = promptResIdWhenIdle,
+                statusResId = statusResId
+            )
+        }
     }
 
     /**
