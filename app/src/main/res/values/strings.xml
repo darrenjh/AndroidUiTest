@@ -1,3 +1,26 @@
 <resources>
     <string name="app_name">TestApp</string>
+    <string name="face_collect_entry">人脸采集</string>
+    <string name="face_collect_mvvm_entry">Kotlin人脸采集</string>
+    <string name="face_collect_title">采集人脸</string>
+    <string name="face_collect_start">开始采集</string>
+    <string name="face_collect_collecting">采集中...</string>
+    <string name="face_collect_retry">重新采集</string>
+    <string name="face_collect_prompt_idle">请把人脸放入圆形取景框</string>
+    <string name="face_collect_prompt_turn_left">请向左转头</string>
+    <string name="face_collect_prompt_turn_right">请向右转头</string>
+    <string name="face_collect_prompt_look_forward">请正对取景框</string>
+    <string name="face_collect_prompt_raise_head">请轻微抬头</string>
+    <string name="face_collect_status_permission">需要相机权限才能采集人脸图片</string>
+    <string name="face_collect_status_opening">正在打开相机...</string>
+    <string name="face_collect_status_ready">相机已就绪，点击开始采集</string>
+    <string name="face_collect_status_no_face">未检测到人脸，请把脸放入圆形取景框</string>
+    <string name="face_collect_status_too_close">人脸太近，请稍微离远一点</string>
+    <string name="face_collect_status_outside">人脸不在取景框中，请调整位置</string>
+    <string name="face_collect_status_inside">保持当前动作，正在采集...</string>
+    <string name="face_collect_status_unsupported">当前相机不支持系统人脸框检测，无法确认人脸是否在取景框内</string>
+    <string name="face_collect_status_failed_timeout">采集失败：人脸未在规定时间内保持在取景框中</string>
+    <string name="face_collect_status_capture_failed">采集失败：无法从相机预览生成图片</string>
+    <string name="face_collect_status_saved">已采集 %1$d 张，继续保持动作</string>
+    <string name="face_collect_status_done">采集完成，已保存 %1$d 张 JPG：%2$s</string>
 </resources>

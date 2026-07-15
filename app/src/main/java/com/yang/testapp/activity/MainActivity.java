@@ -1,6 +1,7 @@
 package com.yang.testapp.activity;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Bundle;
@@ -29,15 +30,37 @@ public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
     private MainInfo currentInfo;
 
+    /**
+     * 初始化首页列表，并挂载人脸采集入口按钮。
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(LayoutInflater.from(this));
         setContentView(binding.getRoot());
+        bindFaceCollectEntry();
         initView(30, binding, new Runnable() {
             @Override
             public void run() {
                 showDialog();
+            }
+        });
+    }
+
+    /**
+     * 绑定首页的人脸采集入口，点击后进入独立相机采集页。
+     */
+    private void bindFaceCollectEntry() {
+        binding.btnFaceCollect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, FaceCollectActivity.class));
+            }
+        });
+        binding.btnFaceCollectMvvm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, FaceCollectMvvmActivity.class));
             }
         });
     }

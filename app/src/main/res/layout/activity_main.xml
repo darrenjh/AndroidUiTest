@@ -10,10 +10,25 @@
         android:gravity="center"
         android:text="main page"
         />
+    <Button
+        android:id="@+id/btn_face_collect"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:text="@string/face_collect_entry" />
+    <Button
+        android:id="@+id/btn_face_collect_mvvm"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:text="@string/face_collect_mvvm_entry" />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         />
 
 </LinearLayout>
