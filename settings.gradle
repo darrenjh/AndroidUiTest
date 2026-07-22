@@ -1,2 +1,5 @@
 rootProject.name = "TestApp"
 include ':app'
+include ':websocket-core'
+include ':websocket-server-app'
+include ':websocket-client-app'

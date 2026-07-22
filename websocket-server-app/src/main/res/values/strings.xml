@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">WebSocket 服务端</string>
+    <string name="server_status_idle">服务未开启</string>
+    <string name="local_ip_title">本机局域网地址</string>
+    <string name="refresh_ip">刷新 IP</string>
+    <string name="port_hint">端口，默认 9000</string>
+    <string name="start_server">开启</string>
+    <string name="stop_server">停止</string>
+    <string name="client_count_empty">当前客户端：0</string>
+    <string name="discovery_status_idle">DNS-SD：未发布</string>
+    <string name="server_message_hint">输入要广播给客户端的消息</string>
+    <string name="send_to_all">广播</string>
+    <string name="log_title">关键日志</string>
+</resources>

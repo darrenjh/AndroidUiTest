@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical"
+    android:paddingBottom="18dp">
+
+    <TextView
+        android:id="@+id/tv_prompt"
+        android:layout_width="match_parent"
+        android:layout_height="82dp"
+        android:background="#FFFFFF"
+        android:gravity="center"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:text="@string/voice_collect_prompt_idle"
+        android:textColor="#151922"
+        android:textSize="21sp"
+        android:textStyle="bold" />
+
+    <FrameLayout
+        android:id="@+id/voice_level_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#F7F9FC">
+
+        <com.yang.testapp.view.VoiceLevelView
+            android:id="@+id/voice_level_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/tv_status"
+        android:layout_width="match_parent"
+        android:layout_height="76dp"
+        android:gravity="center"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:text="@string/voice_collect_status_ready"
+        android:textColor="#4A5568"
+        android:textSize="15sp"
+        tools:text="麦克风已就绪，点击开始采集" />
+
+    <Button
+        android:id="@+id/btn_start_collect"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="@string/voice_collect_start" />
+</LinearLayout>

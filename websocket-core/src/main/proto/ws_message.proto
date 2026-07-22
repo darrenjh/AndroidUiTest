@@ -1,0 +1,63 @@
+syntax = "proto3";
+
+package yang.websocket;
+
+option java_package = "com.yang.websocket.core.proto";
+option java_outer_classname = "WsProto";
+
+message Envelope {
+  enum Type {
+    TYPE_UNKNOWN = 0;
+    HELLO = 1;
+    CHAT = 2;
+    PING = 3;
+    PONG = 4;
+    ACK = 5;
+    ERROR = 6;
+  }
+
+  enum Role {
+    ROLE_UNKNOWN = 0;
+    SERVER = 1;
+    CLIENT = 2;
+  }
+
+  string msg_id = 1;
+  int64 timestamp = 2;
+  Role from = 3;
+  Type type = 4;
+
+  oneof body {
+    HelloBody hello = 10;
+    ChatBody chat = 11;
+    PingBody ping = 12;
+    PongBody pong = 13;
+    AckBody ack = 14;
+    ErrorBody error = 15;
+  }
+}
+
+message HelloBody {
+  string text = 1;
+  string protocol_version = 2;
+}
+
+message ChatBody {
+  string text = 1;
+}
+
+message PingBody {
+  string source_msg_id = 1;
+}
+
+message PongBody {
+  string source_msg_id = 1;
+}
+
+message AckBody {
+  string source_msg_id = 1;
+}
+
+message ErrorBody {
+  string text = 1;
+}
